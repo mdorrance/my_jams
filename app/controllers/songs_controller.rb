@@ -1,7 +1,9 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
   def index
+    session[:most_recent_song_title] = Song.last.title
     @songs = Song.all
+
   end
 
   def show
@@ -12,11 +14,18 @@ class SongsController < ApplicationController
   end
 
   def create
-    Song.create(song_params)
-    redirect_to songs_path
+    @song = Song.new(song_params)
+    if @song.save
+      flash[:success] = "#{@song.title} has been added!"
+      redirect_to songs_path
+    else
+      flash[:danger] = "Title is missing!"
+      redirect_to songs_path
+    end
   end
 
   def edit
+    @song = Song.find(params[:id])
   end
 
   def update
