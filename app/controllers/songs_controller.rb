@@ -20,7 +20,7 @@ class SongsController < ApplicationController
       redirect_to songs_path
     else
       flash[:danger] = "Title is missing!"
-      redirect_to songs_path
+      redirect_to new_song_path
     end
   end
 

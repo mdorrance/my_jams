@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><strong>Newest song:</strong> <%= session[:most_recent_song_title] %></li>
+        <li><a href=#><strong>Newest song:</strong> <%= session[:most_recent_song_title] %></a></li>
         <li><%= link_to "Index", songs_path %></li>
         <li><%= link_to "New Song", new_song_path %></li>
       </ul>
