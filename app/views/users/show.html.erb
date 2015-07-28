@@ -1,0 +1,9 @@
+<h1><%= current_user.username%>'s Jams</h1>
+<% @songs.each do |song| %>
+<ul>
+  <li> <h3> <%= link_to song.title, song_path(song) %> </h3></li>
+  <%= link_to "Edit", edit_song_path(song), class: "btn btn-primary btn-xs" %>
+  <%= link_to "Delete", song_path(song), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-xs" %>
+  <!-- <li> <%#= link_to song.title, song) %> </li> -->
+</ul>
+<% end %>

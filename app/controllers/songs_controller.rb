@@ -14,13 +14,24 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new(song_params)
-    if @song.save
-      flash[:success] = "#{@song.title} has been added!"
-      redirect_to songs_path
+    if current_user
+      @song = current_user.songs.new(song_params)
+      if @song.save
+        flash[:success] = "#{@song.title} has been added!"
+        redirect_to current_user
+      else
+        flash[:danger] = "Title is missing!"
+        redirect_to new_song_path
+      end
     else
-      flash[:danger] = "Title is missing!"
-      redirect_to new_song_path
+      @song = Song.new(song_params)
+      if @song.save
+        flash[:success] = "#{@song.title} has been added!"
+        redirect_to songs_path
+      else
+        flash[:danger] = "Title is missing!"
+        redirect_to new_song_path
+      end
     end
   end
 

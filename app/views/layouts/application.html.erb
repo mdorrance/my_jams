@@ -27,6 +27,13 @@
         <li><a href=#><strong>Newest song:</strong> <%= session[:most_recent_song_title] %></a></li>
         <li><%= link_to "Index", songs_path %></li>
         <li><%= link_to "New Song", new_song_path %></li>
+        <% if current_user %>
+          <li> <%= link_to "Welcome back #{current_user.username}", "#"  %></li>
+          <li><%= link_to "Logout", logout_path %></li>
+        <% else %>
+          <li><%= link_to "Create Account", new_user_path %></li>
+          <li><%= link_to "Login", login_path %></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
