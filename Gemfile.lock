@@ -40,9 +40,6 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap3-rails (3.2.0)
-      rails (>= 4.0.0)
-    bootstrap_form (2.3.0)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -164,8 +161,6 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  bootstrap3-rails
-  bootstrap_form
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
@@ -181,4 +176,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.5
+   1.10.6
